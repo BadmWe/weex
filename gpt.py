@@ -78,12 +78,12 @@ def get_mexc_ticker():
     return r
 
 
-agent = create_agent(model, tools=[get_mexc_ticker, get_mexc_futures_ADA, get_mexc_futures_BTC, get_mexc_futures_DOGE, get_mexc_futures_BNB, get_mexc_futures_ETH, get_mexc_futures_LTC, get_mexc_futures_SOL, get_mexc_futures_XRP],
+agent = create_agent(model, tools=[get_mexc_futures_ADA, get_mexc_futures_BTC, get_mexc_futures_DOGE, get_mexc_futures_BNB, get_mexc_futures_ETH, get_mexc_futures_LTC, get_mexc_futures_SOL, get_mexc_futures_XRP],
                      system_prompt="You are a helpful Senior Research Analyst. Analyze the major trading pairs involving ADA, SOL, LTC, DOGE, BTC, ETH, XRP, BNB on CEX Weex. Be concise and accurate.")
 
 result = agent.invoke(
     {"messages": [HumanMessage(
-        "Conduct a comprehensive analysis of the tickers including spot and futures. Identify key trends and document your analysis. Suggest trading actions: stop limits, leverage, time window and a ticker to trade. The opportunity exit should be in under 2-3 hours.")]}
+        "Conduct a comprehensive analysis of the tickers including spot and futures. Identify key trends and document your analysis. Suggest trading actions: stop limits, leverage, time window and a ticker to trade. Provide 3 detailed trades. The opportunity exit should be in under 2-3 hours.")]}
 )
 
 # print(result)
