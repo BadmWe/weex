@@ -2,15 +2,21 @@
 
 ## To run
 
+### ENV Variable
+
+`export OPENAI_API_KEY="...data"`
+
+### Installation
+
 `python -m venv venv`
 
 `source ./venv/Scripts/activate`
 
 `pip install -r requirements.txt`
 
-## ENV File
+### Running OpenAI agent
 
-`OPENAI_API_KEY="...data"`
+`py gpt.py`
 
 ## Further Resources
 
