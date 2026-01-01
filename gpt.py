@@ -14,6 +14,12 @@ def get_mexc_futures_ADA():
         f'https://contract.mexc.com/api/v1/contract/depth/ADA_USDT').json()
     return r
 
+@tool
+def get_weex_ADA():
+    """Get Futures WEEX Data for ADA and usdt"""
+    r = requests.get(
+        f'https://api-contract.weex.com/capi/v2/market/ticker?symbol=cmt_adausdt').json()
+    return r
 
 @tool
 def get_mexc_futures_BNB():
