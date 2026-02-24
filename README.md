@@ -18,13 +18,13 @@
 
 `py gpt.py`
 
+### Running Flask API
+
+`py app.py`
+
+POST JSON to `/analyze` with optional `prompt`.
+
 ## Further Resources
-
-### Weex
-
-[Get Single Ticker](https://www.weex.com/api-doc/contract/Market_API/GetTickerInfo)
-
-[Participation Guide](https://www.weex.com/api-doc/ai/introduction/ParticipantGuide)
 
 ### LangChain
 

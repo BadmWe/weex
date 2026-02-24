@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MEXC GPT Analyst</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="card">
+        <header class="head">
+          <div class="badge">MEXC Analyst</div>
+          <h1>Compact Market Insight</h1>
+          <p>Paste a prompt and get an actionable analysis fast.</p>
+        </header>
+
+        <form class="form" method="post" action="/">
+          <label class="label" for="prompt">Prompt</label>
+          <textarea
+            id="prompt"
+            name="prompt"
+            rows="6"
+            placeholder="Type your market question here..."
+          >{{ prompt }}</textarea>
+          <div class="actions">
+            <button type="submit">Run Analysis</button>
+            <span class="hint">Returns a concise, trade-ready summary.</span>
+          </div>
+        </form>
+
+        {% if result %}
+        <section class="result">
+          <div class="result-title">Result</div>
+          <pre class="result-body">{{ result }}</pre>
+        </section>
+        {% endif %}
+      </section>
+    </main>
+  </body>
+</html>
