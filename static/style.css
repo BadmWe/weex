@@ -77,6 +77,34 @@ p {
   margin-top: 18px;
 }
 
+.preset {
+  display: grid;
+  gap: 10px;
+}
+
+.preset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+select {
+  flex: 1 1 240px;
+  min-width: 200px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0a1429;
+  color: var(--ink);
+  padding: 10px 12px;
+  font-size: 13px;
+}
+
+.preset-hint {
+  color: var(--muted);
+  font-size: 12px;
+  min-height: 16px;
+}
+
 .label {
   font-size: 13px;
   color: var(--muted);
@@ -121,6 +149,13 @@ button {
 
 button:hover {
   filter: brightness(1.05);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  box-shadow: none;
 }
 
 .hint {

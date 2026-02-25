@@ -16,6 +16,26 @@
         </header>
 
         <form class="form" method="post" action="/">
+          <div class="preset">
+            <label class="label" for="preset">Preset</label>
+            <div class="preset-row">
+              <select id="preset">
+                <option value="">Select a preset</option>
+                {% for preset in presets %}
+                <option
+                  value="{{ preset.id }}"
+                  data-prompt="{{ preset.prompt }}"
+                  data-hint="{{ preset.hint }}"
+                >
+                  {{ preset.name }}
+                </option>
+                {% endfor %}
+              </select>
+              <button class="ghost" type="button" id="apply-preset">Use Preset</button>
+            </div>
+            <div class="preset-hint" id="preset-hint"></div>
+          </div>
+
           <label class="label" for="prompt">Prompt</label>
           <textarea
             id="prompt"
@@ -52,5 +72,24 @@
         {% endif %}
       </section>
     </main>
+    <script>
+      const presetSelect = document.getElementById("preset");
+      const presetHint = document.getElementById("preset-hint");
+      const applyPreset = document.getElementById("apply-preset");
+      const promptField = document.getElementById("prompt");
+
+      function applySelectedPreset() {
+        const option = presetSelect.options[presetSelect.selectedIndex];
+        const prompt = option?.dataset?.prompt || "";
+        const hint = option?.dataset?.hint || "";
+        if (prompt) {
+          promptField.value = prompt;
+        }
+        presetHint.textContent = hint;
+      }
+
+      presetSelect.addEventListener("change", applySelectedPreset);
+      applyPreset.addEventListener("click", applySelectedPreset);
+    </script>
   </body>
 </html>
