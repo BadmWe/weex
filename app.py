@@ -37,5 +37,22 @@ def landing_submit():
     return render_template("index.html", prompt=prompt, result=result)
 
 
+@app.post("/follow-up")
+def follow_up():
+    prompt = (request.form.get("prompt") or "").strip() or DEFAULT_PROMPT
+    prior_result = (request.form.get("result") or "").strip()
+    question = (request.form.get("question") or "").strip()
+    if not question:
+        return render_template("index.html", prompt=prompt, result=prior_result)
+    combined = (
+        "You previously analyzed the following prompt and produced the result below.\n\n"
+        f"PROMPT:\n{prompt}\n\nRESULT:\n{prior_result}\n\n"
+        f"FOLLOW-UP QUESTION:\n{question}\n\n"
+        "Answer the follow-up question concisely and only reference the analysis as needed."
+    )
+    followup_result = run_analysis(combined)
+    return render_template("index.html", prompt=prompt, result=followup_result, question=question)
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=False)

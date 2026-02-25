@@ -34,6 +34,21 @@
           <div class="result-title">Result</div>
           <pre class="result-body">{{ result }}</pre>
         </section>
+
+        <section class="followup">
+          <div class="result-title">Follow-up Question</div>
+          <form class="followup-form" method="post" action="/follow-up">
+            <input type="hidden" name="prompt" value="{{ prompt }}" />
+            <input type="hidden" name="result" value="{{ result }}" />
+            <input
+              type="text"
+              name="question"
+              placeholder="Ask a follow-up (e.g., tighten risk parameters)"
+              value="{{ question or '' }}"
+            />
+            <button type="submit">Ask</button>
+          </form>
+        </section>
         {% endif %}
       </section>
     </main>

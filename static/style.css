@@ -154,6 +154,34 @@ button:hover {
   overflow: auto;
 }
 
+.followup {
+  margin-top: 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.followup-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.followup-form input[type="text"] {
+  flex: 1 1 260px;
+  min-width: 220px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0a1429;
+  color: var(--ink);
+  padding: 10px 12px;
+  font-size: 13px;
+}
+
+.followup-form input[type="text"]:focus {
+  outline: 2px solid rgba(56, 189, 248, 0.4);
+  border-color: rgba(56, 189, 248, 0.7);
+}
+
 @media (max-width: 720px) {
   .wrap {
     padding: 28px 16px 40px;
